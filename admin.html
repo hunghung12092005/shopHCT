@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiệu Ứng Di Chuyển</title>
+</head>
+<body>
+    <button class="btn" id="add-to-cart">
+        🛒 Thêm Vào Giỏ Hàng    
+    </button>
+
+    <img src="your-image-url.jpg" alt="Product Image" id="fly-image" style="display: none;"/>
+
+    <script>
+        // Tạo các kiểu CSS cho hình ảnh
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .image-fly {
+                position: absolute;
+                transition: transform 0.5s ease, opacity 0.5s ease;
+                opacity: 1; /* Khởi tạo độ mờ */
+            }
+
+            .fly {
+                transform: translate(calc(100vw - 50px), -100vh); /* Di chuyển lên góc phải */
+                opacity: 0; /* Ẩn khi di chuyển */
+            }
+        `;
+        document.head.appendChild(style);
+
+        document.getElementById('add-to-cart').addEventListener('click', function() {
+            const image = document.getElementById('fly-image');
+            const buttonRect = this.getBoundingClientRect(); // Vị trí nút
+
+            // Đặt vị trí ban đầu cho hình ảnh
+            image.style.display = 'block'; // Hiện hình ảnh
+            image.style.left = `${buttonRect.left + window.scrollX}px`;
+            image.style.top = `${buttonRect.top + window.scrollY}px`;
+            image.classList.add('image-fly'); // Thêm class cho hình ảnh
+
+            setTimeout(() => {
+                // Thêm class để bắt đầu hiệu ứng
+                image.classList.add('fly');
+            }, 10); // Đợi một chút để CSS có thể áp dụng vị trí ban đầu
+
+            // Ẩn hình ảnh sau khi hiệu ứng hoàn tất
+            setTimeout(() => {
+                image.style.display = 'none';
+                image.classList.remove('fly'); // Xóa class để có thể sử dụng lại sau
+                image.style.opacity = '1'; // Đặt lại độ mờ
+            }, 510); // Thời gian khớp với thời gian transition
+        });
+    </script>
+</body>
+</html>

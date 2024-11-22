@@ -1,0 +1,525 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+
+:root {
+    /* --blue: #20e60e52; */
+    --blue: #de1b1b52;
+    --white: #fff;
+    --grey: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+}
+
+.navigation-Admin {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: var(--blue);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation-Admin.active {
+    width: 100px;
+}
+
+.navigation-Admin ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navigation-Admin ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.navigation-Admin ul li:hover,
+.navigation-Admin ul li.hovered {
+    background: var(--white);
+}
+
+.navigation-Admin ul li:nth-child(1) {
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.navigation-Admin ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.navigation-Admin ul li:hover a,
+.navigation-Admin ul li.hovered a {
+    color: var(--blue);
+}
+
+.navigation-Admin ul li a .icon-Admin {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+}
+
+.navigation-Admin ul li a .icon-Admin ion-icon {
+    font-size: 1.75em;
+}
+
+.navigation-Admin ul li a .title-Admin {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.navigation-Admin ul li:hover a::before,
+.navigation-Admin ul li.hovered a::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.navigation-Admin ul li:hover a::after,
+.navigation-Admin ul li.hovered a::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.main-Admin {
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+}
+
+.main-Admin.active {
+    width: calc(100% - 80px);
+    left: 80px;
+}
+
+.topbar-Admin {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggle-Admin {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+
+.search-Admin {
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+
+.search-Admin label {
+    position: relative;
+    width: 100%;
+}
+
+.search-Admin label input {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid var(--black2);
+}
+
+.search-Admin label ion-icon {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1.2em;
+}
+
+.user-Admin {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user-Admin img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardBox-Admin {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+
+.cardBox-Admin .card-Admin {
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.cardBox-Admin .card-Admin .numbers-Admin {
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: var(--blue);
+}
+
+.cardBox-Admin .card-Admin .cardName-Admin {
+    color: var(--black2);
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+
+.cardBox-Admin .card-Admin .iconBx-Admin {
+    font-size: 3.5em;
+    color: var(--black2);
+}
+
+.cardBox-Admin .card-Admin:hover {
+    background: var(--blue);
+}
+
+.cardBox-Admin .card-Admin:hover .numbers-Admin,
+.cardBox-Admin .card-Admin:hover .cardName-Admin,
+.cardBox-Admin .card-Admin:hover .iconBx-Admin {
+    color: var(--white);
+}
+
+/* charts */
+.graphBox-Admin {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 30px;
+    min-height: 200px;
+}
+
+.graphBox-Admin .box-Admin {
+    position: relative;
+    background: #fff;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.details-Admin {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    grid-gap: 30px;
+}
+.details-Admin-One {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-gap: 30px;
+}
+
+.details-Admin .recentOrders-Admin{
+    position: absolute;
+    width: 100%;
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.cardHeader-Admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cardHeader-Admin h2 {
+    font-weight: 600;
+    color: var(--blue);
+}
+
+.btn-Admin {
+    position: relative;
+    padding: 5px 10px;
+    background: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+}
+
+.details-Admin table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.details-Admin th,
+.details-Admin td {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 8px; /* Thêm khoảng đệm cho ô */
+    text-align: left; /* Căn chỉnh văn bản ở bên trái */
+}
+
+.details-Admin table thead td {
+    font-weight: 600;
+}
+
+.details-Admin .recentOrders-Admin table tr {
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.details-Admin .recentOrders-Admin table tr:last-child {
+    border-bottom: none;
+}
+
+.details-Admin .recentOrders-Admin table tbody tr:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.details-Admin .recentOrders-Admin table tr td {
+    padding: 10px;
+}
+
+.details-Admin .recentOrders-Admin table tr td:last-child {
+    text-align: end;
+}
+
+.details-Admin .recentOrders-Admin table tr td:nth-child(2) {
+    text-align: end;
+}
+
+.details-Admin .recentOrders-Admin table tr td:nth-child(3) {
+    text-align: center;
+}
+
+.status-Admin.delivered {
+    padding: 2px 4px;
+    background: #8de02c;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status-Admin.pending {
+    padding: 2px 4px;
+    background: #f9ca3f;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status-Admin.return {
+    padding: 2px 4px;
+    background: #f00;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status-Admin.inprogress {
+    padding: 2px 4px;
+    background: #1795ce;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.recentCustomers-Admin {
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    padding: 20px;
+    background: var(--white);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.recentCustomers-Admin .imgBx-Admin {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.recentCustomers-Admin .imgBx-Admin img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recentCustomers-Admin table tr td {
+    padding: 12px 10px;
+}
+
+.recentCustomers-Admin table tr td h4 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2em;
+}
+
+.recentCustomers-Admin table tr td h4 span {
+    font-size: 14px;
+    color: var(--black2);
+}
+
+.recentCustomers-Admin table tr:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.recentCustomers-Admin table tr:hover td h4 span {
+    color: var(--white);
+}
+
+@media (max-width: 991px) {
+    .graphBox-Admin {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .navigation-Admin {
+        left: -300px;
+    }
+
+    .navigation-Admin.active {
+        width: 300px;
+        left: 0;
+    }
+
+    .main-Admin {
+        width: 100%;
+        left: 0;
+    }
+
+    .main-Admin.active {
+        left: 300px;
+    }
+
+    .cardBox-Admin {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .details-Admin {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .recentOrders-Admin {
+        overflow-x: auto;
+    }
+
+    .status-Admin.inprogress {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .cardBox-Admin {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .cardHeader-Admin h2 {
+        font-size: 20px;
+    }
+
+    .user-Admin {
+        min-width: 40px;
+    }
+
+    .navigation-Admin {
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+
+    .navigation-Admin.active {
+        width: 100%;
+        left: 0;
+    }
+
+    .toggle-Admin {
+        z-index: 10001;
+    }
+
+    .main-Admin.active .toggle-Admin {
+        position: fixed;
+        right: 0;
+        left: initial;
+        color: var(--white);
+    }
+}
