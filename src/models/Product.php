@@ -55,31 +55,57 @@ class Product extends baseModel
         // Trả về kết quả
         return $stmt->fetchAll();
     }
+    //admin product
+    public function getAllAdminSp($tableName, $limit = 15, $offset = 0) {
+        $sql = "SELECT DISTINCT t.*, i.hinh_anh_prod, c.ten_danh_muc 
+                FROM $tableName AS t
+                LEFT JOIN img_product AS i ON t.id = i.id_san_pham
+                LEFT JOIN danh_muc AS c ON t.id_danh_muc = c.id
+                LIMIT $limit OFFSET $offset"; // Thêm DISTINCT để loại bỏ bản ghi trùng lặp
+        
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+    public function getTotalProducts($tableName) {
+        $sql = "SELECT COUNT(*) FROM $tableName";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+    }
     public function delAllProduct($tableName, $id)
     {
         $sql = "DELETE FROM $tableName where ID = ?";
         parent::pdoUpdate($sql, [$id]);
         //return $stmt->fetchAll();
     }
-    public function updateByIDCatogery($tableName, $id, $data)
-    {
+    public function createProduct($tableName, $data) {
+        $columns = array_keys($data);
+        $placeholders = array_fill(0, count($columns), '?');
+    
+        $sql = "INSERT INTO $tableName (" . implode(', ', $columns) . ") VALUES (" . implode(', ', $placeholders) . ")";
+        $stmt = $this->conn->prepare($sql);
+    
+        $values = array_values($data);
+        $stmt->execute($values);
+    }
+    public function updateByIDProduct($tableName, $id, $data) {
         //debug($id);
         $colums = [];
         $data['ID'] = $id;
         foreach ($data as $key => $value) {
             // if($key !== 'ma_san_pham') {
-            $colums[] = "$key= :$key";
+                $colums[] = "$key= :$key";
             //}
         }
         // /debug(implode(", ", $colums));
         //$sql = "UPDATE $tableName SET ".implode(",", $colums)." WHERE MA_SAN_PHAM = ?";
-        $sql = "UPDATE $tableName SET " . implode(", ", $colums) . "  WHERE ID  = :ID";
+        $sql = "UPDATE $tableName SET ".implode(", ", $colums)."  WHERE ID  = :ID";
         //debug($data);
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
     }
-    public function findCatogery($tableName, $id)
-    {
+    public function findProduct($tableName, $id) {            
         $sql = "SELECT * FROM $tableName where ID = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([$id]);

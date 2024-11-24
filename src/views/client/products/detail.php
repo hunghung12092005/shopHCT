@@ -21,6 +21,8 @@ $idsp = $_GET['ID'];
     </nav>
     <div class="row ">
         <!-- Carousel for large screens -->
+        
+        
         <div class="col-md-6">
             <div class="row">
                 <div class="col-md-9">
@@ -28,25 +30,25 @@ $idsp = $_GET['ID'];
                         <div class="carousel-inner">
                             <div class="carousel-item active" id="item-to-move">
                                 <div class="image-container">
-                                    <img class="main-img" src="https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-giu-nhiet-nu-yody-ATN7007-TRA%20(2).jpg" alt="product-gender 1">
+                                    <img class="main-img" src="<?= $itemProductDetail['hinh_anh_prod']  ?>" alt="product-gender 1">
                                     <img class="overlay-img" src="https://m.yodycdn.com/fit-in/filters:format(webp)/products/nguyengia_m2vmwldeeh929sdrxig.png" alt="Overlay">
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="image-container">
-                                    <img class="main-img" src="https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-giu-nhiet-nu-yody-ATN7007-TRA%20(9).jpg" alt="product-gender 2">
+                                    <img class="main-img" src="<?= $itemProductDetail['img_black']  ?>" alt="product-gender 2">
                                     <img class="overlay-img" src="https://m.yodycdn.com/products/docquyenonline_m2vmv0bq4uahylhe5z.png" alt="Overlay">
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="image-container">
-                                    <img class="main-img" src="https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-giu-nhiet-nu-yody-ATN7007-TRA%20QJN6052-XNH%20(2).jpg" alt="product-gender 3">
+                                    <img class="main-img" src="<?= $itemProductDetail['img_green']  ?>" alt="product-gender 3">
                                     <img class="overlay-img" src="https://m.yodycdn.com/products/docquyenonline_m2vmv0bq4uahylhe5z.png" alt="Overlay">
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="image-container">
-                                    <img class="main-img" src="https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-giu-nhiet-nu-yody-ATN7007-TRA%20(5).jpg" alt="product-gender 4">
+                                    <img class="main-img" src="<?= $itemProductDetail['img_brown']  ?>" alt="product-gender 4">
                                     <img class="overlay-img" src="https://m.yodycdn.com/products/docquyenonline_m2vmv0bq4uahylhe5z.png" alt="Overlay">
                                 </div>
                             </div>
@@ -66,27 +68,24 @@ $idsp = $_GET['ID'];
                 <div class="col-md-3 mt-2">
                     <div class="thumbnails d-none d-md-block">
                         <div class="mb-2">
-                            <img src="https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-giu-nhiet-nu-yody-ATN7007-TRA%20(2).jpg" alt="Ảnh nhỏ 1" class="thumbnail" data-slide-to="0">
+                            <img src="<?= $itemProductDetail['hinh_anh_prod']  ?>" alt="Ảnh nhỏ 1" class="thumbnail" data-slide-to="0">
                         </div>
                         <div class="mb-2">
-                            <img src="https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-giu-nhiet-nu-yody-ATN7007-TRA%20(9).jpg" alt="Ảnh nhỏ 2" class="thumbnail" data-slide-to="1">
+                            <img src="<?= $itemProductDetail['img_black']  ?>" alt="Ảnh nhỏ 2" class="thumbnail" data-slide-to="1">
                         </div>
                         <div class="mb-2">
-                            <img src="https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-giu-nhiet-nu-yody-ATN7007-TRA%20QJN6052-XNH%20(2).jpg" alt="Ảnh nhỏ 3" class="thumbnail" data-slide-to="2">
+                            <img src="<?= $itemProductDetail['img_green']  ?>" alt="Ảnh nhỏ 3" class="thumbnail" data-slide-to="2">
                         </div>
                         <div class="mb-2">
-                            <img src="https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-giu-nhiet-nu-yody-ATN7007-TRA%20(5).jpg" alt="Ảnh nhỏ 4" class="thumbnail" data-slide-to="3">
+                            <img src="<?= $itemProductDetail['img_brown']  ?>" alt="Ảnh nhỏ 4" class="thumbnail" data-slide-to="3">
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
-
         <!-- Product Description -->
 
-        <?php foreach ($ProductDetail  as $itemProductDetail): ?>
-        <?php endforeach; ?>
         <div class="col-md-6 col-12 description">
             <span>
                 <div class="discount-Detal">-<?= $itemProductDetail['khuyen_mai']  ?>

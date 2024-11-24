@@ -21,7 +21,7 @@
     $router->add("GET", "admin", "/admin/UpdateLoai", "CategoryController@findCategory");
     $router->add("POST", "admin", "/admin/UpdateLoai", "CategoryController@findCategory");
     /* // sản phẩm */
-    $router->add("GET", "admin", "/admin/product", "ProductController@index");
+    $router->add("GET", "admin", "/admin/products", "ProductController@index");
      //xóa
      $router->add("GET", "admin", "/admin/DeleteSanPham", "ProductController@delAllSanPham");
      //thêm

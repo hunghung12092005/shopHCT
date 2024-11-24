@@ -9,10 +9,15 @@ class ProductDetail extends baseModel
 
     public function getAllProducDetal($id)
     {
-        $sql = "SELECT * FROM san_pham WHERE id = ?";
+        $sql = "
+            SELECT sp.*, ip.hinh_anh_prod, ip.img_black, ip.img_green, ip.img_brown
+            FROM san_pham sp
+            LEFT JOIN img_product ip ON sp.id = ip.id_san_pham
+            WHERE sp.id = ?"; // Chỉ cần kiểm tra id trong bảng san_pham
+        
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([$id]);
-        return $stmt->fetchAll();
+        return $stmt->fetch(); // Sử dụng fetch() vì bạn đang lấy một sản phẩm duy nhất
     }
     public function createOrder($tableName, $data)
     {

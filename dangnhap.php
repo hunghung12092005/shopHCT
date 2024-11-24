@@ -62,14 +62,14 @@ $_SESSION['user_email'] = $userinfo->email;
 $email = $conn->real_escape_string($userinfo->email);
 $name = $conn->real_escape_string($userinfo->name);
 $address = $conn->real_escape_string($userinfo->address);
-
+$role = 'client';
 // Thực hiện truy vấn để kiểm tra xem email đã tồn tại chưa
 $sql = "SELECT * FROM users WHERE email = '$email'";
 $result = $conn->query($sql);
 $baseUrl = BASE_URL;
 if ($result->num_rows == 0) {
     // Nếu email chưa tồn tại, thêm mới người dùng
-    $sql = "INSERT INTO users (email, user_id,dia_chi) VALUES ('$email', '$name','$address')";
+    $sql = "INSERT INTO users (email, user_id,dia_chi,role) VALUES ('$email', '$name','$address','$role')";
     if ($conn->query($sql) === TRUE) {
         $row = $result->fetch_assoc();
         $_SESSION['id'] = $row['id']; // Gán d vào session

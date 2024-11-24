@@ -139,53 +139,7 @@
               </tbody>
             </table>
           </div>
-          <div class="recentCustomers-Admin">
-            <div class="cardHeader-Admin">
-              <h2>Khách Hàng Top</h2>
-            </div>
-            <table>
-              <tr>
-                <td>
-                  <div class="imgBx-Admin"><ion-icon name="person-outline"></ion-icon></div>
-                </td>
-                <td>
-                  <h4>Coding World<br /><span>Italy</span></h4>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="imgBx-Admin"><ion-icon name="person-outline"></ion-icon></div>
-                </td>
-                <td>
-                  <h4>Coding World<br /><span>Italy</span></h4>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="imgBx-Admin"><ion-icon name="person-outline"></ion-icon></div>
-                </td>
-                <td>
-                  <h4>Coding World<br /><span>Italy</span></h4>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="imgBx-Admin"><ion-icon name="person-outline"></ion-icon></div>
-                </td>
-                <td>
-                  <h4>Coding World<br /><span>Italy</span></h4>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="imgBx-Admin"><ion-icon name="person-outline"></ion-icon></div>
-                </td>
-                <td>
-                  <h4>Coding World<br /><span>Italy</span></h4>
-                </td>
-              </tr>
-            </table>
-          </div>
+         
         </div>
       </div>
 

@@ -11,21 +11,25 @@
                $this->ProductObject = new Product();
            }
 
-        public function index() {     
-             //$_SESSION['admin'] = 1;      
-            $dataProduct = $this->ProductObject->getAllAdminSp($this->tableName);           
-            if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['keyword'])) {
-                //debug($_GET);
-                $dataProduct = $this->ProductObject->selectByParamProduct($this->tableName, $_GET);
-            }
-            //debug($data);
-            //$_SESSION['admin'] = 1;
-
+        public function index() {
+            $limit = 15; // Số sản phẩm mỗi trang
+            $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+            $currentPage = max(1, $currentPage); // Đảm bảo trang lớn hơn hoặc bằng 1
+        
+            $offset = ($currentPage - 1) * $limit; // Tính offset
+        
+            $dataProduct = $this->ProductObject->getAllAdminSp($this->tableName, $limit, $offset);
+        
+            // Lấy tổng số sản phẩm để tính số trang
+            $totalProducts = $this->ProductObject->getTotalProducts($this->tableName);
+            $totalPages = ceil($totalProducts / $limit);
+        
+            // Gửi dữ liệu đến view
             require_once './src/views/admin/product/product.php';
         }
         public function delAllSanPham(){
             $id = $_GET['ID'] ?? ""; // ID chỉ là tên đặt sau dấu ? bên file index cha
-               $this->ProductObject->delAllProduct($id);             
+               $this->ProductObject->delAllProduct($this->tableName,$id);             
                echo "<script>window.location.href = '$this->baseUrl/admin/product';</script>";
                //hoặc là đẩy lại dữ liệu về index  require_once './src/views/admin/category/Category.php'; như này
         }
@@ -33,7 +37,6 @@
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $allowedExtensions = ['jpg', 'png', 'jpeg'];
                 $fileExtension = strtolower(pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION));
-                
                 if (in_array($fileExtension, $allowedExtensions)) {
                     if (isset($_FILES) && $_FILES['img']['size'] > 0) {
                         $dir = "./assets/image/client";

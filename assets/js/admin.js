@@ -104,3 +104,4 @@ var myEarningChart = new Chart(earning, {
         responsive: true,
     },
 });
+//

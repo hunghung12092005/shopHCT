@@ -49,7 +49,7 @@
                     <a href="<?= BASE_URL ?>/productDetail?ID=<?= $itemProductFavorive['id'] ?>">
                         <div class="discount-badge-Home">-<?= $itemProductFavorive['khuyen_mai'] ?>%</div>
                         <div class="image-container-Home"><!-- main-img-2 khác chiều cao với main-img -->
-                            <img class="main-img-2" src="https://m.yodycdn.com/fit-in/filters:format(webp)/products/PHM7009-REU,%20ATM7004-DEN%20(3).jpg" alt="product-gender 1">
+                            <img class="main-img-2" src="<?= $itemProductFavorive['hinh_anh_prod'] ?>" alt="product-gender 1">
                             <img class="overlay-img" src="https://m.yodycdn.com/products/docquyenonline_m2vmv0bq4uahylhe5z.png" alt="Overlay">
                         </div>
                         <p class="title-product-gender"><?= $itemProductFavorive['ten_san_pham'] ?></p>

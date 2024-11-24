@@ -31,7 +31,8 @@
                 }
                 //PHẦN SẢN PHẨM
                 $ProductBinhluan = $this->modelObject->getAllProductBinhLuan($id);
-                $ProductDetail = $this->modelObject->getAllProducDetal($id);
+                $itemProductDetail = $this->modelObject->getAllProducDetal($id);
+                //debug($itemProductDetail['img_black']);
                 //$ProductUser = $this->modelObject->getAllUser($userId);
 
                 // Tăng view

@@ -15,11 +15,12 @@
         //     return $stmt->fetchAll();
         // }
         public function getAllprodFavorive() {
-            $sql = "SELECT *
-            FROM san_pham
-            WHERE id_danh_muc = 2
-            ORDER BY luot_mua DESC
-            LIMIT 4;";//thêm sản phẩm mới lên
+            $sql = "SELECT sp.*, ip.hinh_anh_prod
+                    FROM san_pham sp
+                    JOIN img_product ip ON sp.id = ip.id_san_pham
+                    WHERE sp.id_danh_muc = 2
+                    ORDER BY sp.luot_mua DESC
+                    LIMIT 4;";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll();
